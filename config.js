@@ -45,13 +45,13 @@ const siteConfig = {
                     text: "sm.ms",
                     description: "知名免费图床",
                     href: "https://smms.app",
-                    thumbnail: "img/default.svg"
+                    thumbnail: "img/smms.png"
                 },
                 {
                     text: "Cloudinary",
                     description: "免费图床，但速度一般",
                     href: "https://cloudinary.com",
-                    thumbnail: "img/default.svg"
+                    thumbnail: "img/cloudinary.png"
                 }
                 // ...其他链接
             ]
