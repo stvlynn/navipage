@@ -1,81 +1,90 @@
 document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
-    const icon = document.querySelector("#theme-toggle i");
-    document.getElementById("theme-toggle").addEventListener("click", function() {
-        if (body.classList.contains("light-mode")) {
-            body.classList.remove("light-mode");
-            body.classList.add("dark-mode");
-            icon.className = "fa-solid fa-moon";
+    const themeToggleButton = document.getElementById('theme-toggle');
+
+    // Check if user has set a preference for light/dark mode in their system
+    const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (userPrefersDark) {
+        body.classList.add('dark-mode');
+        themeToggleButton.innerHTML = '<i class="fa-regular fa-sun"></i>';
+    } else {
+        themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    }
+
+    // Toggle light/dark mode when user clicks the button
+    themeToggleButton.addEventListener('click', function() {
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            themeToggleButton.innerHTML = '<i class="fa-solid fa-moon"></i>';
         } else {
-            body.classList.remove("dark-mode");
-            body.classList.add("light-mode");
-            icon.className = "fa-regular fa-sun";
+            body.classList.add('dark-mode');
+            themeToggleButton.innerHTML = '<i class="fa-regular fa-sun"></i>';
         }
     });
 
-    const hour = new Date().getHours();
-    body.classList.add(hour >= 7 && hour < 19 ? "light-mode" : "dark-mode");
+    // Load site config from config.js
+    const headerElement = document.querySelector("header h1");
+    headerElement.textContent = siteConfig.headerTitle;
 
     const main = document.querySelector("main");
-    
-    document.querySelector("header h1").textContent = siteConfig.siteHeader;
-    
-    const footerContent = `${siteConfig.footer.copyright} | ${siteConfig.footer.icp}`;
-    document.querySelector("footer p").textContent = footerContent;
-    
-    if (siteConfig.backgroundImage) {
-        body.style.backgroundImage = "url('img/background.jpg')";
-    }
-    
-// ... [前面的代码不变] ...
 
-siteConfig.categories.forEach(category => {
-    const section = document.createElement("section");
-    
-    const h2 = document.createElement("h2");
-    h2.textContent = category.title;
-    section.appendChild(h2);
+    siteConfig.categories.forEach(category => {
+        const section = document.createElement("section");
 
-    const cardContainer = document.createElement("div");
-    cardContainer.className = "card-container";
+        const h2 = document.createElement("h2");
+        h2.textContent = category.title;
+        section.appendChild(h2);
 
-    category.links.forEach(link => {
-        const card = document.createElement("a");
-        card.href = link.href;
-        card.className = "card";
-        card.title = link.description;
+        const cardContainer = document.createElement("div");
+        cardContainer.className = "card-container";
 
-        const imgContainer = document.createElement("div");
-        if (link.thumbnail) {
-            const img = document.createElement("img");
-            img.src = link.thumbnail;
-            imgContainer.appendChild(img);
-        } else {
-            const icon = document.createElement("i");
-            icon.className = "fa-solid fa-sitemap";
-            imgContainer.appendChild(icon);
-        }
-        card.appendChild(imgContainer);
+        category.links.forEach(link => {
+            const card = document.createElement("a");
+            card.href = link.href;
+            card.className = "card";
+            card.title = link.description;
 
-        const cardText = document.createElement("div");
-        cardText.className = "card-text";
-        cardText.textContent = link.text;
-        card.appendChild(cardText);
+            const imgContainer = document.createElement("div");
+            if (link.thumbnail) {
+                const img = document.createElement("img");
+                img.src = link.thumbnail;
+                imgContainer.appendChild(img);
+            } else {
+                const icon = document.createElement("i");
+                icon.className = "fa-solid fa-sitemap";
+                imgContainer.appendChild(icon);
+            }
+            card.appendChild(imgContainer);
 
-        const cardDescription = document.createElement("div");
-        cardDescription.className = "card-description";
-        cardDescription.textContent = link.description;
-        card.appendChild(cardDescription);
+            const cardText = document.createElement("div");
+            cardText.className = "card-text";
+            cardText.textContent = link.text;
+            card.appendChild(cardText);
 
-        cardContainer.appendChild(card);
+            const cardDescription = document.createElement("div");
+            cardDescription.className = "card-description";
+            cardDescription.textContent = link.description;
+            card.appendChild(cardDescription);
+
+            cardContainer.appendChild(card);
+        });
+
+        section.appendChild(cardContainer);
+        const divider = document.createElement("hr");
+        section.appendChild(divider);
+        main.appendChild(section);
     });
 
-    section.appendChild(cardContainer);
+    // Add GitHub repo link to footer
+    const footer = document.querySelector("footer");
+    const githubLink = document.createElement("a");
+    githubLink.href = "https://github.com/stvlynn/navipage";
+    githubLink.target = "_blank";  // Open link in a new tab
 
-    const divider = document.createElement("hr");
-    section.appendChild(divider);
-
-    main.appendChild(section);
+    const githubIcon = document.createElement("i");
+    githubIcon.className = "fa-brands fa-github";
+    githubLink.appendChild(githubIcon);
+    
+    footer.appendChild(githubLink);
 });
-});
-
