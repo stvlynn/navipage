@@ -101,7 +101,21 @@ body.dark-mode #theme-toggle {
     opacity: 1;
 }
 
+/*底栏*/
 footer {
     text-align: center;
     margin-top: 20px;
+}
+
+/*Github图标*/
+
+footer a {
+    color: inherit; /* 使用相同的字体颜色 */
+    text-decoration: none; /* 移除下划线 */
+    margin-right: 10px; /* 为图标右侧添加一些间距 */
+}
+
+footer i.fa-github {
+    font-size: 24px; /* 调整GitHub图标大小 */
+    vertical-align: middle; /* 垂直对齐 */
 }
