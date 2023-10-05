@@ -29,6 +29,7 @@ The main goal of this project is to provide a visually appealing and organized w
 2. Modify the `config.js` file to customize your links and categories.
 3. Open `index.html` in a browser to view and test.
 4. Deploy to any static hosting platform of your choice (like GitHub Pages, Netlify, Vercel, etc.).
+   
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fstvlynn%2Fnavipage)
 
 ## License
