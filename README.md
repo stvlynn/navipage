@@ -1,6 +1,6 @@
 # Web Navigation Page
 
-[English](https://github.com/stvlynn/navipage/README.md) | [中文](https://github.com/stvlynn/navipage/README_CN.md)
+[English](https://github.com/stvlynn/navipage/README.md) | [中文](https://github.com/stvlynn/navipage/blob/main/README_CN.md)
 ## Introduction
 
 This project provides a static web navigation page designed to simplify access to your favorite sites. It's a card-based navigation system that categorizes links, enhancing the user experience and improving the organization of web links.
