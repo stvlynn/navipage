@@ -23,12 +23,12 @@ const siteConfig = {
                     href: "https://bing.stv.lol",
                     thumbnail: "img/bing.ico"
                 },
-                /*{
-                    text: "链接1",
-                    description: "描述1",
-                    href: "https://example.com",
-                    thumbnail: "img/example1.png"
-                }*/
+                {
+                    text: "Copilot Hub",
+                    description: "可以自定义对话bot",
+                    href: "https://app.copilothub.ai/",
+                    thumbnail: "img/default.svg"
+                }
                 // ...其他链接
             ]
         },
@@ -41,45 +41,22 @@ const siteConfig = {
                     href: "https://img.stv.lol",
                     thumbnail: "img/picx.png"
                 },
-                /*{
-                    text: "链接1",
-                    description: "描述1",
-                    href: "https://example.com",
-                    thumbnail: "img/example1.png"
+                {
+                    text: "sm.ms",
+                    description: "知名免费图床",
+                    href: "https://smms.app",
+                    thumbnail: "img/default.svg"
                 },
                 {
-                    text: "链接1",
-                    description: "描述1",
-                    href: "https://example.com",
-                    thumbnail: "img/example1.png"
-                }*/
+                    text: "Cloudinary",
+                    description: "免费图床，但速度一般",
+                    href: "https://cloudinary.com",
+                    thumbnail: "img/default.svg"
+                }
                 // ...其他链接
             ]
         },
-
-        title: "其他工具导航",
-        links: [
-            {
-                text: "3kn.jp",
-                description: "蜜柑麻麻的网址导航",
-                href: "https://3kn.jp",
-                thumbnail: "img/default.svg"
-            },
-            /*{
-                text: "链接1",
-                description: "描述1",
-                href: "https://example.com",
-                thumbnail: "img/example1.png"
-            },
-            {
-                text: "链接1",
-                description: "描述1",
-                href: "https://example.com",
-                thumbnail: "img/example1.png"
-            }*/
-            // ...其他链接
-        ]
-    }
+        
         // ...其他分类
     ]
 };
