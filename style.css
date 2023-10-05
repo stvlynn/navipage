@@ -23,6 +23,24 @@ header h1 {
     background: none;
     border: none;
     cursor: pointer;
+    background-color: #ffe88a;  /* 淡黄色 */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;  /* 使按钮为圆形 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #theme-toggle {
+    background-color: #2c3e50;  /* 灰蓝色 */
 }
 
 .card-container {
@@ -42,6 +60,8 @@ header h1 {
     border-radius: 8px;
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
@@ -59,4 +79,29 @@ header h1 {
 
 .card .card-text {
     margin-top: 10px;
+}
+
+.card-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* 半透明背景 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.card:hover .card-description {
+    opacity: 1;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
 }

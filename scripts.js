@@ -27,47 +27,55 @@ document.addEventListener('DOMContentLoaded', function() {
         body.style.backgroundImage = "url('img/background.jpg')";
     }
     
-    siteConfig.categories.forEach(category => {
-        const section = document.createElement("section");
-        
-        const h2 = document.createElement("h2");
-        h2.textContent = category.title;
-        section.appendChild(h2);
+// ... [前面的代码不变] ...
 
-        const cardContainer = document.createElement("div");
-        cardContainer.className = "card-container";
+siteConfig.categories.forEach(category => {
+    const section = document.createElement("section");
+    
+    const h2 = document.createElement("h2");
+    h2.textContent = category.title;
+    section.appendChild(h2);
 
-        category.links.forEach(link => {
-            const card = document.createElement("a");
-            card.href = link.href;
-            card.className = "card";
-            card.title = link.description;
+    const cardContainer = document.createElement("div");
+    cardContainer.className = "card-container";
 
-            const imgContainer = document.createElement("div");
-            if (link.thumbnail) {
-                const img = document.createElement("img");
-                img.src = link.thumbnail;
-                imgContainer.appendChild(img);
-            } else {
-                const icon = document.createElement("i");
-                icon.className = "fa-solid fa-sitemap";
-                imgContainer.appendChild(icon);
-            }
-            card.appendChild(imgContainer);
+    category.links.forEach(link => {
+        const card = document.createElement("a");
+        card.href = link.href;
+        card.className = "card";
+        card.title = link.description;
 
-            const cardText = document.createElement("div");
-            cardText.className = "card-text";
-            cardText.textContent = link.text;
-            card.appendChild(cardText);
+        const imgContainer = document.createElement("div");
+        if (link.thumbnail) {
+            const img = document.createElement("img");
+            img.src = link.thumbnail;
+            imgContainer.appendChild(img);
+        } else {
+            const icon = document.createElement("i");
+            icon.className = "fa-solid fa-sitemap";
+            imgContainer.appendChild(icon);
+        }
+        card.appendChild(imgContainer);
 
-            cardContainer.appendChild(card);
-        });
+        const cardText = document.createElement("div");
+        cardText.className = "card-text";
+        cardText.textContent = link.text;
+        card.appendChild(cardText);
 
-        section.appendChild(cardContainer);
+        const cardDescription = document.createElement("div");
+        cardDescription.className = "card-description";
+        cardDescription.textContent = link.description;
+        card.appendChild(cardDescription);
 
-        const divider = document.createElement("hr");
-        section.appendChild(divider);
-
-        main.appendChild(section);
+        cardContainer.appendChild(card);
     });
+
+    section.appendChild(cardContainer);
+
+    const divider = document.createElement("hr");
+    section.appendChild(divider);
+
+    main.appendChild(section);
 });
+});
+
