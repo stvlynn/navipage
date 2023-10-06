@@ -3,8 +3,7 @@ const siteConfig = {
     siteHeader: "在线工具by Steven",
     header: "<!-- Here you can insert your Google Analytics or other scripts -->",
     footer: {
-        icp: "萌ICP备20222055号",
-        copyright: "© 2023 在线工具by Steven"
+        text: "© 2023 在线工具by Steven | 萌ICP备20222055号  "//底栏文字，可以改成你自己的
     },
     backgroundImage: true,
     categories: [

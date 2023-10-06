@@ -82,9 +82,19 @@ document.addEventListener('DOMContentLoaded', function() {
     githubLink.href = "https://github.com/stvlynn/navipage";
     githubLink.target = "_blank";  // Open link in a new tab
 
+
     const githubIcon = document.createElement("i");
     githubIcon.className = "fa-brands fa-github";
     githubLink.appendChild(githubIcon);
     
     footer.appendChild(githubLink);
+
+    // ... [其它部分的代码不变] ...
+
+    // Adjust footer content from config.js
+    const footerText = document.createElement("span");
+    footerText.textContent = siteConfig.footer.text;
+
+    footer.insertBefore(footerText, githubLink); // Insert the text before the GitHub icon
+
 });
