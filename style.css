@@ -62,11 +62,14 @@ body.dark-mode #theme-toggle {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    color: black;   /* 使用其父元素的颜色 */
+    text-decoration: none;  /* 去掉下划线 */
 }
 
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: inherit;  /* 确保鼠标悬停时颜色不变 */
 }
 
 .card img,
